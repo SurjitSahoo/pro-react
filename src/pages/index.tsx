@@ -16,9 +16,14 @@ function HomepageHeader() {
           {siteConfig.title}
         </Heading>
         <p className='hero__subtitle'>{siteConfig.tagline}</p>
+        <p style={{ maxWidth: '50rem', margin: '2rem auto' }}>
+          Pro React is a collection of best practices, tips, and tricks for building scalable, maintainable, and performant React applications. It
+          covers everything from component design and state management to performance optimization and testing. Whether you're a beginner or an
+          experienced React developer, Pro React will help you take your skills to the next level.
+        </p>
         <div className={styles.buttons}>
           <Link className='button button--secondary button--lg' to='/docs/intro'>
-            Docusaurus Tutorial - 5min ⏱️
+            Become Pro 🚀
           </Link>
         </div>
       </div>
@@ -31,7 +36,7 @@ export default function Home(): ReactNode {
   return (
     <Layout title={`Hello from ${siteConfig.title}`} description='Description will go into a meta tag in <head />'>
       <HomepageHeader />
-      <main>Main</main>
+      {/* <main>Main</main> */}
     </Layout>
   );
 }

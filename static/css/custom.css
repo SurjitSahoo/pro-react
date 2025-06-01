@@ -1,0 +1,63 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #58a6ff;
+  --ifm-color-primary-dark: #388bfd;
+  --ifm-color-primary-darker: #1f6feb;
+  --ifm-color-primary-darkest: #0d419d;
+  --ifm-color-primary-light: #79c0ff;
+  --ifm-color-primary-lighter: #a5d6ff;
+  --ifm-color-primary-lightest: #caeaff;
+  --ifm-background-color: #0d1117;
+  --ifm-font-color-base: #c9d1d9;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: #161b22;
+  --ifm-link-color: #58a6ff;
+  --ifm-navbar-background-color: #161b22;
+  --ifm-navbar-link-color: #c9d1d9;
+  --ifm-navbar-link-hover-color: #58a6ff;
+  --ifm-footer-background-color: #161b22;
+  --ifm-footer-color: #8b949e;
+  --ifm-menu-color-background-active: #21262d;
+  --ifm-menu-color: #c9d1d9;
+  --ifm-menu-color-active: #58a6ff;
+  --ifm-button-background-color: #238636;
+  --ifm-button-color: #fff;
+  --ifm-button-hover-background-color: #2ea043;
+  --ifm-border-color: #30363d;
+  --ifm-table-stripe-background: #161b22;
+  --ifm-table-border-color: #30363d;
+  --ifm-table-head-background: #161b22;
+  --ifm-table-head-color: #58a6ff;
+  --ifm-table-row-hover-background: #21262d;
+  --ifm-badge-background-color: #238636;
+  --ifm-badge-color: #fff;
+  --ifm-input-background-color: #161b22;
+  --ifm-input-border-color: #30363d;
+  --ifm-input-color: #c9d1d9;
+  --ifm-input-placeholder-color: #8b949e;
+  --ifm-selection-background: #388bfd;
+  --ifm-selection-color: #fff;
+}
+
+.navbar__brand {
+  margin-right: 2rem;
+}

@@ -4,9 +4,16 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const projectName = 'Pro React';
+const tagline = 'Write robust, scalable and clean react applications';
+const organizationName = 'SurjitSahoo'; // Your GitHub username or organization name
+const repoName = 'pro-react'; // Your repository name
+const repoUrl = `https://github.com/${organizationName}/${repoName}.git`;
+const editUrl = `${repoUrl.replace(/.git$/, '')}/edit/main/`;
+
 const config: Config = {
-  title: 'Pro React',
-  tagline: 'Comprehensive guide to React best practices with interactive examples',
+  title: projectName,
+  tagline,
   favicon: 'img/react.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -15,15 +22,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://surjitsahoo.github.io',
+  url: `https://${organizationName.toLowerCase()}.github.io`,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/pro-react/',
+  baseUrl: `/${repoName}/`,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'SurjitSahoo', // Usually your GitHub org/user name.
-  projectName: 'pro-react', // Usually your repo name.
+  organizationName, // Usually your GitHub org/user name.
+  projectName: repoName, // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -46,7 +53,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl,
         },
         blog: {
           showReadingTime: true,
@@ -56,20 +63,24 @@ const config: Config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl,
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: './static/css/custom.css',
         },
       } satisfies Preset.Options,
     ],
   ],
 
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+      // respectPrefersColorScheme: true,
+    },
     liveCodeBlock: {
       /**
        * The position of the live playground, above or under the editor
@@ -80,7 +91,7 @@ const config: Config = {
     // Replace with your project's social card
     // image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'Pro React',
+      title: projectName,
       logo: {
         alt: 'React Logo',
         src: 'img/react.png',
@@ -94,7 +105,7 @@ const config: Config = {
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: repoUrl,
           label: 'GitHub',
           position: 'right',
         },
@@ -103,48 +114,49 @@ const config: Config = {
 
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      // links: [
+      //   {
+      //     title: 'Docs',
+      //     items: [
+      //       {
+      //         label: 'Best Practices',
+      //         to: '/docs/intro',
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     title: 'Community',
+      //     items: [
+      //       {
+      //         label: 'Stack Overflow',
+      //         href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+      //       },
+      //       {
+      //         label: 'Discord',
+      //         href: 'https://discordapp.com/invite/docusaurus',
+      //       },
+      //       {
+      //         label: 'X',
+      //         href: 'https://x.com/docusaurus',
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     title: 'More',
+      //     items: [
+      //       {
+      //         label: 'Blog',
+      //         to: '/blog',
+      //       },
+      //       {
+      //         label: 'GitHub',
+      //         href: 'https://github.com/facebook/docusaurus',
+      //       },
+      //     ],
+      //   },
+      // ],
+      copyright: `Copyright © ${new Date().getFullYear()} - ${projectName}<br />
+      Made with ❤️ by Surjit Sahoo`,
     },
     prism: {
       theme: prismThemes.github,
