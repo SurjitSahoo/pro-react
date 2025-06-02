@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-deploy:
+  deploy-to-gh-pages:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
