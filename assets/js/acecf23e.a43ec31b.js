@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpro_react=self.webpackChunkpro_react||[]).push([[903],{1912:e=>{e.exports=JSON.parse('{"blogBasePath":"/pro-react/blog","blogTitle":"Blog","authorsListPath":"/pro-react/blog/authors"}')}}]);
