@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpro_react=self.webpackChunkpro_react||[]).push([[1957],{6619:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/pro-react/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
