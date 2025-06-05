@@ -1,0 +1,155 @@
+---
+sidebar_position: 3
+title: Decouple UI from State
+slug: decouple-ui-from-state-using-global-state
+---
+
+# Global State
+
+When it comes to global state management in react, there's no opinionated solution on the topic. But currently redux is by far the most popular library. How we use redux in our react applications has gone through many changes and evolved over the past few years.
+
+Tomorrow there might be another big change, a better way to use redux, Or maybe a different all-new library comes out, and that becomes the norm. Then what do we do? How do we upgrade, and how do we maintain our projects?
+
+Should we change every single file/component that uses the global state? It sounds like a really bad idea!
+
+:::tip Decouple UI from state
+Global State can help you separate and abstract all the state management logic away from the UI components. This can help decouple the UI components.
+:::
+
+## How to decouple UI from state management?
+
+Using global state management libraries such as redux, we can abstract the state management logic away from the UI components. This way, we can change the implementation of the global state management library without affecting the UI components.
+
+The react components should not need to know how the global state is managed, they should only know how to read the state and how to update the state.
+
+Whether we use redux, zustand, xState, jotai, signals or any other global state management library, these are lower level details. The UI components should not need to know about it.
+
+```jsx title="example"
+import { useCount } from 'globalState/clientState/count';
+
+export function CountComponent() {
+  const { count, increment, decrement, reset } = useCount();
+
+  return (
+    <>
+      <div>Global Count: {count}</div>
+      <button onClick={increment}>increment</button>
+      <button onClick={decrement}>decrement</button>
+      <button onClick={reset}>reset</button>
+    </>
+  );
+}
+```
+
+In the above example, the `CountComponent` imports and uses a custom hook. How that hook works internally is not important to the `CountComponent`. The `CountComponent` only cares about the state and how to update it.
+
+The `useCount` hook can be implemented using any global state management library, such as redux, zustand, xState, jotai, signals or any other library.
+
+### Implementation of abstract global state using redux
+
+```jsx title="📁 globalState/clientState/count.js"
+import { createSlice } from '@reduxjs/toolkit';
+import { useDispatch, useSelect } from 'react-redux';
+
+// create the redux slice
+const countSlice = createSlice({
+  name: 'count',
+  initialState: { count: 0 },
+  reducers: {
+    increment(state) {
+      state.count += 1;
+    },
+    decrement(state) {
+      state.count -= 1;
+    },
+    clear(state) {
+      state.count = 0;
+    },
+  },
+});
+
+const { increment, decrement, clear } = countSlice.actions; // NOTICE, I'M NOT EXPORTING THE ACTIONS
+
+export function useCount() {
+  const dispatch = useDispatch();
+  const count = useSelect(state => state.count.count);
+
+  return {
+    count,
+    increment: () => dispatch(increment()),
+    decrement: () => dispatch(decrement()),
+    reset: () => dispatch(clear()),
+  };
+}
+
+export default countSlice.reducer; // needed for connecting this slice to redux-store
+```
+
+### Implementation of abstract global state using zustand
+
+```jsx title="📁 globalState/clientState/count.js"
+import { create } from 'zustand';
+
+export const useCount = create(set => ({
+  count: 0,
+  increment: () => set(state => ({ count: state.count + 1 })),
+  decrement: () => set(state => ({ count: state.count - 1 })),
+  reset: () => set({ count: 0 }),
+}));
+```
+
+## Hide the framework / library details from the application
+
+We can organize the global state management library setup in a way that it's abstracted away from the application code.
+
+```txt title="📁 globalState folder structure"
+globalState
+├── core <------------------ core configurations for the global state
+│   ├── store.ts <---------- redux store (with redux-toolkit)
+│   ├── provider.tsx <------ redux context provider
+│   ├── hooks.ts <---------- custom hooks for internal use
+│   └── [helper].ts <------- Any helpers if needed
+|
+├── clientState <----------- client side state, that has nothing to do with server data
+│   └── count.ts <---------- keeping track of count
+|
+├── serverState <----------- application state, that relies on server side data fetched from some APIs
+│   └── blogsPosts.ts <----- CRUD apis with state-management for blog posts
+|
+└── index.ts
+```
+
+<details>
+  <summary>❌ DON'T DO THESE if you want to keep your components clean and decoupled</summary>
+
+If you get any value or functions returned form any hook, it's only mean't to be used within that component, and not to be passed down to child components, or to any utility functions which might be called outside the react's lifecycle.
+
+```jsx title="💩💩💩 Worst usage"
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { someAction } from 'globalStore/actions';
+
+function ComponentA() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const onSomeEvent = () => {
+    dispatch(
+      someAction({
+        dispatch, // 💩💩💩💩💩
+        navigate, // 💩💩💩💩💩
+        somePayload,
+      }),
+    );
+  };
+
+  return <button onClick={onSomeEvent}>Click Me</button>;
+}
+```
+
+<b>
+  This is a bad practice because it tightly couples the component with the global state management library and the routing library. It's very hard to
+  track bugs and issues in such code, and it makes the component not reusable at all.
+</b>
+
+</details>

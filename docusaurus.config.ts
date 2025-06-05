@@ -88,6 +88,11 @@ const config: Config = {
        */
       playgroundPosition: 'bottom',
     },
+    docs: {
+      sidebar: {
+        hideable: true, // Allow users to hide the sidebar
+      },
+    },
     // Replace with your project's social card
     // image: 'img/docusaurus-social-card.jpg',
     navbar: {
@@ -155,8 +160,13 @@ const config: Config = {
       //     ],
       //   },
       // ],
-      copyright: `Copyright © ${new Date().getFullYear()} - ${projectName}<br />
-      Made with ❤️ by Surjit Sahoo`,
+      copyright: `
+      <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 2rem;">
+        <div>Copyright © ${new Date().getFullYear()} - ${projectName}</div>
+        |
+        <div>Made with ❤️ by <b>Surjit Sahoo</b></div>
+      </div>
+      `,
     },
     prism: {
       theme: prismThemes.github,
