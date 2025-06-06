@@ -1,6 +1,6 @@
 {
   "label": "Performance",
-  "position": 3,
+  "position": 4,
   "link": {
     "type": "generated-index",
     "description": "Understand how React works under the hood, how the hooks work, what are hooks really. Gain deeper insights into React's performance optimization techniques, including memoization, lazy loading, and concurrent rendering. Learn how to write efficient components and manage state effectively to ensure your applications run smoothly."
