@@ -1,6 +1,7 @@
 {
   "label": "Architecture",
   "position": 2,
+  "collapsed": false,
   "link": {
     "type": "generated-index",
     "description": "Robust code architecture is essential for building scalable and maintainable applications. This section covers the principles and practices that guide the design of a well-structured codebase."

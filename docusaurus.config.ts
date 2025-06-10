@@ -45,6 +45,7 @@ const config: Config = {
 
   plugins: ['@docusaurus/theme-live-codeblock'],
 
+  staticDirectories: ['static', 'public'],
   presets: [
     [
       'classic',

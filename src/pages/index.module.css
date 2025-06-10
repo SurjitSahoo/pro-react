@@ -4,10 +4,14 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding-top: 4rem;
+  margin-bottom: -4rem;
+  padding-bottom: 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background-color: transparent;
+  z-index: 3;
 }
 
 @media screen and (max-width: 996px) {
@@ -16,8 +20,112 @@
   }
 }
 
-.buttons {
+.main {
+  position: relative;
+  min-height: 32rem;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 -4rem 4rem -8px rgba(0, 0, 0, 0.85);
+}
+
+.bottomOverlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 4rem;
+  width: 100%;
+  pointer-events: none;
+}
+
+.description {
+  max-width: 50rem;
+  margin: 0 auto 1.5rem auto;
+  position: static;
+  left: unset;
+  right: unset;
+  bottom: unset;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1rem;
+  padding: 1.25rem 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.button {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 3;
+  pointer-events: auto;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.buttonLink {
+  all: unset;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: 0.5rem;
+  padding: 2px;
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #1fd1f9, #ff6ec4);
+  background-size: 600% 600%;
+  animation: animated-border 4s linear infinite;
+}
+
+@keyframes animated-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.button > * {
+  position: relative;
+  z-index: 1;
+  background: inherit;
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 996px) {
+  .main {
+    min-height: 20rem;
+  }
+  .bottomOverlay {
+    padding-bottom: 1rem;
+  }
+  .description {
+    padding: 1rem 1rem;
+    font-size: 0.98rem;
+  }
 }
