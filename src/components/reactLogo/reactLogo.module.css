@@ -1,0 +1,39 @@
+.container {
+  /* React's brand color 👇 */
+  /* --logo-color: #61dafb; */
+  --logo-color: #56a5ba;
+  --electron-color: #53ffd1;
+  --trail-color: var(--electron-color);
+  --trail-width: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.ellipses {
+  stroke: var(--logo-color);
+  stroke-width: 3;
+  fill: none;
+}
+
+.nucleusBulb {
+  /* Glowing bulb effect for the nucleus */
+  filter: drop-shadow(0 0 32px #fff) drop-shadow(0 0 64px var(--logo-color)) drop-shadow(0 0 96px var(--logo-color));
+}
+
+.electron {
+  /* Use a radial gradient for the bulb effect */
+  fill: url(#electron-bulb-gradient);
+  /* Strong glow radiating from the center */
+  filter: drop-shadow(0 0 16px #fff) drop-shadow(0 0 32px var(--electron-color)) drop-shadow(0 0 48px var(--electron-color));
+}
+
+.trail {
+  stroke: var(--trail-color);
+  stroke-width: var(--trail-width);
+  fill: none;
+  filter: url(#trail-blur);
+  opacity: 0.8;
+  stroke-linecap: round;
+}

@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-import proReact from '@site/static/img/pro-react.png';
+import { AnimatedReactLogo } from '../components/reactLogo';
 
 import styles from './index.module.css';
 
@@ -13,23 +13,29 @@ function HomePage() {
   return (
     <div className={styles.main}>
       <header className={styles.heroBanner}>
-        <Heading as='h1'>{siteConfig.title}</Heading>
+        <Heading as='h1' className={styles.title}>
+          {siteConfig.title}
+        </Heading>
         <p className='hero__subtitle'>{siteConfig.tagline}</p>
       </header>
-      <main>
-        <img src={proReact} className={styles.mainImage} />
-        <div className={styles.bottomOverlay}>
-          <p className={styles.description}>
-            Pro React is a collection of best practices, tips, and tricks for building scalable, maintainable, and performant React applications. It
-            covers everything from component design and state management to performance optimization and testing. Whether you're a beginner or an
-            experienced React developer, Pro React will help you take your skills to the next level.
-          </p>
+      <main className={styles.flexMain}>
+        <div className={styles.leftContent}>
+          <div className={clsx(styles.animatedCard, styles.descContainer)}>
+            <p className={styles.description}>
+              Pro React is a collection of best practices, tips, and tricks for building scalable, maintainable, and performant React applications.
+            </p>
+            <p className={styles.description}>
+              It covers everything from component design and state management to performance optimization and testing. Whether you're a beginner or an
+              experienced React developer, Pro React will help you take your skills to the next level.
+            </p>
+          </div>
           <div className={styles.button}>
             <Link className={styles.buttonLink} to='/docs/intro'>
-              Become Pro 🚀
+              Master React 🚀
             </Link>
           </div>
         </div>
+        <AnimatedReactLogo className={styles.logo} />
       </main>
     </div>
   );
