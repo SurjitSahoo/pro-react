@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import { AnimatedReactLogo } from '../components/reactLogo';
+import wizard from '@site/static/img/wizard.png';
 
 import styles from './index.module.css';
 
@@ -19,6 +20,7 @@ function HomePage() {
         <p className='hero__subtitle'>{siteConfig.tagline}</p>
       </header>
       <main className={styles.flexMain}>
+        <img className={styles.bgImage} src={wizard} alt='bg image' />
         <div className={styles.leftContent}>
           <div className={clsx(styles.animatedCard, styles.descContainer)}>
             <p className={styles.description}>
