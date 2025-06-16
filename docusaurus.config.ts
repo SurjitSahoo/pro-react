@@ -78,7 +78,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/react.png',
+    image: 'img/pro-react.png',
     colorMode: {
       defaultMode: 'dark',
       // respectPrefersColorScheme: true,
