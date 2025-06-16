@@ -14,7 +14,6 @@
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-footer-padding-vertical: 1rem;
   --docusaurus-highlighted-code-line-bg: #c4fbd5;
 }
@@ -28,12 +27,11 @@
   --ifm-color-primary-light: #79c0ff;
   --ifm-color-primary-lighter: #a5d6ff;
   --ifm-color-primary-lightest: #caeaff;
-  --ifm-background-color: #0d1117;
+  --ifm-background-color: #00171b;
   --ifm-font-color-base: #c9d1d9;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: #161b22;
   --ifm-link-color: #58a6ff;
-  --ifm-navbar-background-color: #161b22;
+  --ifm-navbar-background-color: #172120;
   --ifm-navbar-link-color: #c9d1d9;
   --ifm-navbar-link-hover-color: #58a6ff;
   --ifm-footer-background-color: #161b22;
@@ -58,7 +56,47 @@
   --ifm-input-placeholder-color: #8b949e;
   --ifm-selection-background: #388bfd;
   --ifm-selection-color: #fff;
-  --docusaurus-highlighted-code-line-bg: #280048;
+  --docusaurus-highlighted-code-line-bg: #004a38;
+}
+
+[data-theme='light'] .DocSearch {
+  --docsearch-primary-color: var(--ifm-color-primary);
+  --docsearch-text-color: #1a2e22;
+  --docsearch-muted-color: #6c8c7a;
+  --docsearch-container-background: rgba(46, 133, 85, 0.08); /* subtle green tint */
+  /* Modal */
+  --docsearch-modal-background: #f6fff9;
+  /* Search box */
+  --docsearch-searchbox-background: #eafaf1;
+  --docsearch-searchbox-focus-background: #fff;
+  /* Hit */
+  --docsearch-hit-color: #1a2e22;
+  --docsearch-hit-active-color: #fff;
+  --docsearch-hit-background: #fff;
+  --docsearch-hit-active-background: var(--ifm-color-primary);
+  /* Footer */
+  --docsearch-footer-background: #eafaf1;
+  --docsearch-key-gradient: linear-gradient(-26.5deg, #b2e5c2 0%, #eafaf1 100%);
+}
+
+[data-theme='dark'] .DocSearch {
+  --docsearch-primary-color: var(--ifm-color-primary);
+  --docsearch-text-color: #c9d1d9;
+  --docsearch-muted-color: #8b949e;
+  --docsearch-container-background: rgba(88, 166, 255, 0.1); /* subtle blue tint */
+  /* Modal */
+  --docsearch-modal-background: #161b22;
+  /* Search box */
+  --docsearch-searchbox-background: #21262d;
+  --docsearch-searchbox-focus-background: #0d1117;
+  /* Hit */
+  --docsearch-hit-color: #c9d1d9;
+  --docsearch-hit-active-color: #fff;
+  --docsearch-hit-background: #21262d;
+  --docsearch-hit-active-background: #388bfd;
+  /* Footer */
+  --docsearch-footer-background: #161b22;
+  --docsearch-key-gradient: linear-gradient(-26.5deg, #388bfd 0%, #161b22 100%);
 }
 
 .navbar__brand {
