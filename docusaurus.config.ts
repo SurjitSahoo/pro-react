@@ -79,6 +79,16 @@ const config: Config = {
 
   themeConfig: {
     image: 'img/pro-react.png',
+    metadata: [
+      {
+        name: 'keywords',
+        content: 'react, best practices, clean code, scalable applications, robust applications',
+      },
+      {
+        name: 'og:image',
+        content: 'img/pro-react.png',
+      },
+    ],
     colorMode: {
       defaultMode: 'dark',
       // respectPrefersColorScheme: true,
@@ -119,6 +129,14 @@ const config: Config = {
       ],
     },
 
+    algolia: {
+      appId: 'L5BXR576YU',
+      apiKey: 'ef0d99343bba6ea8b53142d8def3011c',
+      indexName: 'surjitsahooio',
+      insights: true,
+      contextualSearch: true,
+      searchPagePath: 'search',
+    },
     footer: {
       style: 'dark',
       // links: [
